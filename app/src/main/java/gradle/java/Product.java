@@ -1,11 +1,11 @@
 package gradle.java;
 
 public class Product {
-    private String image;
-    private String description;
-    private String featuredAttribute;
-    private double price;
-    private String reference;
+    private final String image;
+    private final String description;
+    private final String featuredAttribute;
+    private final double price;
+    private final String reference;
 
     public Product(String image, String description, String featuredAttribute, Double price, String reference){
         this.image = image;
@@ -15,5 +15,25 @@ public class Product {
         this.reference = reference;
 
 
+    }
+
+    String showImage(){
+        return image;
+    }
+
+    String showDescription(){
+        return description;
+    }
+
+    String showFeaturedAttribute(){
+        return featuredAttribute;
+    }
+
+    Double showPrice(){
+        return price;
+    }
+
+    String showReference(){
+        return reference;
     }
 }
