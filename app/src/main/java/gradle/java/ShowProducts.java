@@ -1,7 +1,7 @@
 package gradle.java;
 import java.util.ArrayList;
 
-public class SowProducts {
+public class ShowProducts {
 
     public ArrayList<Product> showProducts(){
         DetailOfProduct detailOfProduct = new DetailOfProduct();
