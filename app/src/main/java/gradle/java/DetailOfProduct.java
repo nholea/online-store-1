@@ -1,11 +1,9 @@
 package gradle.java;
-
 import java.util.ArrayList;
 
-public class TemplateOfProduct {
-    ArrayList<Product> productFromTemplateOfProducts = new ArrayList<>();
+public class DetailOfProduct {
 
-    private ArrayList<Product> TemplateOfProducts(){
+    public ArrayList<Product> listOfProducts() {
 
         String imageTV = "\uD83D\uDCFA";
         String descriptionTV = "Glamorous panoramic television, 13 inches";
@@ -22,9 +20,12 @@ public class TemplateOfProduct {
         Product productTV = new Product(imageTV, descriptionTV, featuredAttributeTV, priceTV, referenceTV);
         Product productPiano = new Product(imagePiano, descriptionPiano, featuredAttributePiano, pricePiano, referencePiano);
 
-        for (){
+        ArrayList<Product> listOfProductsAdded = new ArrayList<>();
+        listOfProductsAdded.add(productTV);
+        listOfProductsAdded.add(productPiano);
 
-            return productFromTemplateOfProducts;
-        }
+        return listOfProductsAdded;
     }
+
+
 }
