@@ -1,10 +1,8 @@
 package gradle.java;
-import java.util.ArrayList;
 
 public class ShowProducts {
-
-    public ArrayList<Product> showProducts(){
+    public static void showProducts(){
         DetailOfProduct detailOfProduct = new DetailOfProduct();
-        return  detailOfProduct.listOfProducts();
+        detailOfProduct.listOfProducts();
     }
 }

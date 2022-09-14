@@ -3,7 +3,7 @@ import java.util.ArrayList;
 
 public class DetailOfProduct {
 
-    public ArrayList<Product> listOfProducts() {
+    public ArrayList<Product> listOfProducts(){
 
         String imageTV = "\uD83D\uDCFA";
         String descriptionTV = "Glamorous panoramic television, 13 inches";
@@ -20,12 +20,11 @@ public class DetailOfProduct {
         Product productTV = new Product(imageTV, descriptionTV, featuredAttributeTV, priceTV, referenceTV);
         Product productPiano = new Product(imagePiano, descriptionPiano, featuredAttributePiano, pricePiano, referencePiano);
 
-        ArrayList<Product> listOfProductsAdded = new ArrayList<>();
-        listOfProductsAdded.add(productTV);
-        listOfProductsAdded.add(productPiano);
-
-        return listOfProductsAdded;
+        addProductsToMyList(productPiano, productTV);
+        return listOfProducts();
     }
-
+    public ArrayList<Product> addProductsToMyList(Product productPiano, Product productTV){
+        return listOfProducts();
+    }
 
 }
