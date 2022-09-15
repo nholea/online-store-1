@@ -4,7 +4,7 @@
 package gradle.java;
 public class App {
     public static void main(String[] args) {
-        ShowProducts showProducts = new ShowProducts();
-        System.out.println(showProducts);
+        OnlineShop onlineShop = new OnlineShop();
+        onlineShop.showProducts();
     }
 }
