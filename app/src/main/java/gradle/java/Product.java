@@ -13,8 +13,6 @@ public class Product {
         this.featuredAttribute = featuredAttribute;
         this.price = price;
         this.reference = reference;
-
-
     }
 
     String showImage(){
@@ -33,7 +31,5 @@ public class Product {
         return price;
     }
 
-    String showReference(){
-        return reference;
-    }
+    String showReference(){ return reference; }
 }

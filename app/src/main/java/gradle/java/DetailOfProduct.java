@@ -20,11 +20,17 @@ public class DetailOfProduct {
         Product productTV = new Product(imageTV, descriptionTV, featuredAttributeTV, priceTV, referenceTV);
         Product productPiano = new Product(imagePiano, descriptionPiano, featuredAttributePiano, pricePiano, referencePiano);
 
-        addProductsToMyList(productPiano, productTV);
-        return listOfProducts();
+        return addedProducts();
+
     }
-    public ArrayList<Product> addProductsToMyList(Product productPiano, Product productTV){
-        return listOfProducts();
+    public static ArrayList<Product> addedProducts() {
+        ArrayList<String> list = new ArrayList<>();
+        list.add(productTV.toString());
+        list.add(productPiano.toString());
+
+        for (String product : list) {
+            System.out.println(product);
+        }
     }
 
 }
