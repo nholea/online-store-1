@@ -1,6 +1,5 @@
 package gradle.java;
 
-
 import java.util.ArrayList;
 
 public class CatalogueFormater {
