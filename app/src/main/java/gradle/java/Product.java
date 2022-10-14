@@ -1,35 +1,38 @@
 package gradle.java;
 
 public class Product {
-    private final String image;
-    private final String description;
-    private final String featuredAttribute;
-    private final double price;
-    private final String reference;
 
-    public Product(String image, String description, String featuredAttribute, Double price, String reference){
-        this.image = image;
-        this. description = description;
-        this.featuredAttribute = featuredAttribute;
-        this.price = price;
-        this.reference = reference;
-    }
+  private final String image;
+  private final String description;
+  private final String featuredAttribute;
+  private final double price;
+  private final String reference;
 
-    String showImage(){
-        return image;
-    }
+  public Product(String image, String description, String featuredAttribute, Double price, String reference) {
+    this.image = image;
+    this.description = description;
+    this.featuredAttribute = featuredAttribute;
+    this.price = price;
+    this.reference = reference;
+  }
 
-    String showDescription(){
-        return description;
-    }
+  String getImage() {
+    return image;
+  }
 
-    String showFeaturedAttribute(){
-        return featuredAttribute;
-    }
+  String getDescription() {
+    return description;
+  }
 
-    Double showPrice(){
-        return price;
-    }
+  String getFeaturedAttribute() {
+    return featuredAttribute;
+  }
 
-    String showReference(){ return reference; }
+  Double getPrice() {
+    return price;
+  }
+
+  String getReference() {
+    return reference;
+  }
 }
