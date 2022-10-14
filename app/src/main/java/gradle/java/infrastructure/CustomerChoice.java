@@ -1,5 +1,7 @@
-package gradle.java;
+package gradle.java.infrastructure;
 
+import gradle.java.domain.Product;
+import gradle.java.infrastructure.repositories.ProductRepository;
 import java.util.ArrayList;
 import java.util.Scanner;
 
