@@ -53,8 +53,7 @@ public class CustomerChoice {
       System.out.println();
     } else if (inputOption.equals("2")) {
       ArrayList<Product> catalogue = productRepository.findAll();
-      String formattedCatalogue = catalogueFormatter.outputFormat(catalogue);
-      System.out.println(formattedCatalogue);
+      catalogueFormatter.outputFormat(catalogue);
     } else {
       System.out.println("Sorry, you have to choose one valid option");
     }
