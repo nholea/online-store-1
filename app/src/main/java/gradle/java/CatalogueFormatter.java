@@ -5,12 +5,13 @@ import java.util.ArrayList;
 
 public class CatalogueFormatter {
 
-  DecideStepToContinue decideStepToContinue = new DecideStepToContinue();
-  ProductRepository productRepository;
-  CatalogueFormatter catalogueFormatter = new CatalogueFormatter();
-  ProductsToChooseExplore productsToChooseExplore = new ProductsToChooseExplore(productRepository, catalogueFormatter);
+  private final ProductsToChooseExplore productsToChooseExplore;
 
-  public String format(ArrayList<Product> catalogue) {
+  public CatalogueFormatter(ProductsToChooseExplore productsToChooseExplore) {
+    this.productsToChooseExplore = productsToChooseExplore;
+  }
+
+  public String outputFormat(ArrayList<Product> catalogue) {
     for (Product product : catalogue) {
       System.out.println(product.getImage());
       System.out.println(product.getDescription());
@@ -20,9 +21,8 @@ public class CatalogueFormatter {
       System.out.println("\n");
     }
     productsToChooseExplore.productsToChooseExplore();
-    //decideWhatToDoNext();
+    productsToChooseExplore.decideWhatToDoNext();
     return "";
   }
-
 
 }
