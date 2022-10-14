@@ -1,5 +1,7 @@
-package gradle.java;
+package gradle.java.domain;
 
+import gradle.java.infrastructure.CatalogueFormatter;
+import gradle.java.infrastructure.repositories.ProductRepository;
 import java.util.ArrayList;
 
 public class OnlineShop {
@@ -16,7 +18,6 @@ public class OnlineShop {
   public void showProducts() {
 
     ArrayList<Product> catalogue = productRepository.findAll();
-
     String formattedCatalogue = catalogueFormatter.outputFormat(catalogue);
     System.out.println(formattedCatalogue);
   }
