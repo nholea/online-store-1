@@ -26,17 +26,16 @@ public class CustomerChoice {
     System.out.println(option1);
     System.out.println(option2);
 
-    Scanner myObj = new Scanner(System.in);
-    String object = myObj.nextLine();
+    Scanner scanner = new Scanner(System.in);
+    String inputOption = scanner.nextLine();
 
-    if (object.equals("1")) {
+    if (inputOption.equals("1")) {
       System.out.println(DESCRIPTION_TV);
-    } else if (object.equals("2")) {
+    } else if (inputOption.equals("2")) {
       System.out.println(DESCRIPTION_PIANO);
     } else {
       System.out.println("Sorry, the product doesn't exist");
     }
-
   }
 
   public void decideWhatToDoNext() {
@@ -47,12 +46,12 @@ public class CustomerChoice {
     System.out.println(nextOption1);
     System.out.println(nextOption2);
 
-    Scanner myObj = new Scanner(System.in);
-    String opcionChoosed = myObj.nextLine();
+    Scanner scanner = new Scanner(System.in);
+    String inputOption = scanner.nextLine();
 
-    if (opcionChoosed.equals("1")) {
+    if (inputOption.equals("1")) {
       System.out.println();
-    } else if (opcionChoosed.equals("2")) {
+    } else if (inputOption.equals("2")) {
       ArrayList<Product> catalogue = productRepository.findAll();
       String formattedCatalogue = catalogueFormatter.outputFormat(catalogue);
       System.out.println(formattedCatalogue);
