@@ -28,7 +28,7 @@ public class Product {
     return featuredAttribute;
   }
 
-  public Double showGetPrice() {
+  public Double showPrice() {
     return price;
   }
 

@@ -13,7 +13,7 @@ public class CatalogueFormatter {
       productFormat.append(product.showImage());
       productFormat.append(product.showDescription());
       productFormat.append(product.showFeaturedAttribute());
-      productFormat.append(product.showGetPrice());
+      productFormat.append(product.showPrice());
       productFormat.append(product.showReference());
       productFormat.append("\n");
     }
