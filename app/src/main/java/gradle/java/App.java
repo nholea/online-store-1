@@ -3,7 +3,6 @@
  */
 package gradle.java;
 
-import gradle.java.domain.OnlineShop;
 import gradle.java.infrastructure.CatalogueFormatter;
 import gradle.java.infrastructure.CustomerChoice;
 import gradle.java.infrastructure.repositories.impl.ProductWareHouse;

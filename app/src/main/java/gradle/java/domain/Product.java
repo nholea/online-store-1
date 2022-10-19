@@ -2,7 +2,7 @@ package gradle.java.domain;
 
 public class Product {
 
-  private final String image;
+  public final String image;
   private final String description;
   private final String featuredAttribute;
   private final double price;
