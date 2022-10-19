@@ -3,8 +3,8 @@
  */
 package gradle.java;
 
-import gradle.java.infrastructure.CatalogueFormatter;
 import gradle.java.infrastructure.CustomerChoice;
+import gradle.java.infrastructure.presentation.CatalogueFormatter;
 import gradle.java.infrastructure.repositories.impl.ProductWareHouse;
 
 public class App {

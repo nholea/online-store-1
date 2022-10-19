@@ -2,6 +2,7 @@ package gradle.java.infrastructure;
 
 import gradle.java.domain.Product;
 import gradle.java.domain.ProductRepository;
+import gradle.java.infrastructure.presentation.CatalogueFormatter;
 import java.util.ArrayList;
 import java.util.Scanner;
 

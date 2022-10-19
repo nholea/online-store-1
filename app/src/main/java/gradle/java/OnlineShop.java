@@ -2,7 +2,7 @@ package gradle.java;
 
 import gradle.java.domain.Product;
 import gradle.java.domain.ProductRepository;
-import gradle.java.infrastructure.CatalogueFormatter;
+import gradle.java.infrastructure.presentation.CatalogueFormatter;
 import java.util.ArrayList;
 
 public class OnlineShop {

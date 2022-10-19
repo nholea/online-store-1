@@ -1,4 +1,4 @@
-package gradle.java.infrastructure;
+package gradle.java.infrastructure.presentation;
 
 import gradle.java.domain.Product;
 import java.util.ArrayList;
