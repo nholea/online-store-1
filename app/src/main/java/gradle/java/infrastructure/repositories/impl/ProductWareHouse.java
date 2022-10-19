@@ -24,4 +24,14 @@ public class ProductWareHouse implements ProductRepository {
   public ArrayList<Product> findAll() {
     return products;
   }
+
+  @Override
+  public Product findByReference(String reference) {
+    for (Product product : products) {
+      if (product.reference.equals(reference)) {
+        return product;
+      }
+    }
+    throw new RuntimeException("Product with this reference does not exist in our storage");
+  }
 }
