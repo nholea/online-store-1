@@ -1,4 +1,4 @@
-package gradle.java.infrastructure;
+package gradle.java.infrastructure.interactions;
 
 import gradle.java.domain.Product;
 import gradle.java.domain.ProductRepository;
