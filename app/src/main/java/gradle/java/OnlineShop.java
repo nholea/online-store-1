@@ -17,6 +17,10 @@ public class OnlineShop {
   }
 
   public void showProducts() {
+    outputFormattedCatalogue();
+  }
+
+  private void outputFormattedCatalogue() {
     ArrayList<Product> catalogue = productRepository.findAll();
     String formattedCatalogue = catalogueFormatter.outputFormat(catalogue);
     System.out.println(formattedCatalogue);
