@@ -3,15 +3,19 @@ package gradle.java.domain;
 public class Product {
 
   public final String image;
-  public final String description;
-  public final String featuredAttribute;
+  public final String shortDescription;
+  public final String longDescription;
+  public final String highlightedAttribute;
   public final double price;
   public final String reference;
 
-  public Product(String image, String description, String featuredAttribute, Double price, String reference) {
+
+  public Product(String image, String shortDescription, String longDescription,
+    String highlightedAttribute, Double price, String reference) {
     this.image = image;
-    this.description = description;
-    this.featuredAttribute = featuredAttribute;
+    this.shortDescription = shortDescription;
+    this.longDescription = longDescription;
+    this.highlightedAttribute = highlightedAttribute;
     this.price = price;
     this.reference = reference;
   }

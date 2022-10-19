@@ -11,16 +11,14 @@ public class CatalogueFormatter {
     for (Product product : catalogue) {
       productAspectsFormat(productFormat, product.image);
 
-      productAspectsFormat(productFormat, product.shortDescription);
-
-      productAspectsFormat(productFormat, product.highlightedAttribute);
+      productSummaryDetails(productFormat, product.shortDescription, product.highlightedAttribute);
 
       productAspectsFormat(productFormat, product.longDescription);
 
       productDetailsFormat(productFormat, String.valueOf(product.price), "\uD83D\uDCB0 Price: %s €");
 
       productDetailsFormat(productFormat, product.reference, "Reference: %s");
-      
+
     }
     return productFormat.toString();
 
@@ -36,11 +34,9 @@ public class CatalogueFormatter {
 
     productDetailsFormat(productFormat, product.reference, "Reference: %s");
 
-    addExplanatoryTitle(productFormat, "SUMMARY:");
+    addExplanatoryTitle(productFormat, "\nSUMMARY:");
 
-    productAspectsFormat(productFormat, product.shortDescription);
-
-    productAspectsFormat(productFormat, product.highlightedAttribute);
+    productSummaryDetails(productFormat, product.shortDescription, product.highlightedAttribute);
 
     addExplanatoryTitle(productFormat, "\nDESCRIPTION:");
 
@@ -49,6 +45,11 @@ public class CatalogueFormatter {
     return productFormat.toString();
 
 
+  }
+
+  private static void productSummaryDetails(StringBuilder productBuilder, String productShortDescription, String productHighlightedAttribute) {
+    productBuilder.append(productShortDescription).append(productHighlightedAttribute);
+    productBuilder.append("\n");
   }
 
   private static void productAspectsFormat(StringBuilder productBuilder, String product) {
