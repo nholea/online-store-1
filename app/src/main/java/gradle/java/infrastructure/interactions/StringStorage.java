@@ -1,6 +1,6 @@
 package gradle.java.infrastructure.interactions;
 
-public class Messages {
+public class StringStorage {
 
   public static final String PRODUCT_ELECTION = "Which product would you like to explore? - Introduce a product's reference.";
 
