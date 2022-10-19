@@ -16,5 +16,7 @@ public class StringStorage {
 
   public static final String TWO = "2";
 
+  public static final String NOT_FOUND_REFERENCE_PRODUCT = "Product with this reference does not exist in our storage";
+
 
 }

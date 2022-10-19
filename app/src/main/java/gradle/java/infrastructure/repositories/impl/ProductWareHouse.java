@@ -2,6 +2,7 @@ package gradle.java.infrastructure.repositories.impl;
 
 import gradle.java.domain.Product;
 import gradle.java.domain.ProductRepository;
+import gradle.java.infrastructure.interactions.StringStorage;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -18,7 +19,7 @@ public class ProductWareHouse implements ProductRepository {
       "\uD83C\uDFB9",
       "Untuned musical keyboard,",
       "Tired of your noisy neighbourgh? Play this untuned musical keyboard for two hours at home and your neighbour " +
-                    "will be ready to move to a building far away from you.",
+        "will be ready to move to a building far away from you.",
       " 4 octaves",
       1003.00,
       "X4A")));
@@ -35,6 +36,6 @@ public class ProductWareHouse implements ProductRepository {
         return product;
       }
     }
-    throw new RuntimeException("Product with this reference does not exist in our storage");
+    throw new RuntimeException(StringStorage.NOT_FOUND_REFERENCE_PRODUCT);
   }
 }
