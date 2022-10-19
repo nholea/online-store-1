@@ -16,23 +16,4 @@ public class Product {
     this.reference = reference;
   }
 
-  public String showImage() {
-    return image;
-  }
-
-  public String showDescription() {
-    return description;
-  }
-
-  public String showFeaturedAttribute() {
-    return featuredAttribute;
-  }
-
-  public Double showPrice() {
-    return price;
-  }
-
-  public String showReference() {
-    return reference;
-  }
 }
