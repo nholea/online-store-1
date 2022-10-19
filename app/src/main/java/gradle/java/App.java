@@ -5,6 +5,7 @@ package gradle.java;
 
 import gradle.java.infrastructure.interactions.CustomerChoice;
 import gradle.java.infrastructure.presentation.CatalogueFormatter;
+import gradle.java.infrastructure.presentation.FormattedCatalogue;
 import gradle.java.infrastructure.repositories.impl.ProductWareHouse;
 
 public class App {
@@ -12,8 +13,9 @@ public class App {
   public static void main(String[] args) {
     ProductWareHouse productWareHouse = new ProductWareHouse();
     CatalogueFormatter catalogueFormatter = new CatalogueFormatter();
-    CustomerChoice customerChoice = new CustomerChoice(productWareHouse, catalogueFormatter);
-    OnlineShop onlineShop = new OnlineShop(catalogueFormatter, productWareHouse);
+    FormattedCatalogue formattedCatalogue= new FormattedCatalogue(productWareHouse, catalogueFormatter);
+    OnlineShop onlineShop = new OnlineShop(formattedCatalogue);
+    CustomerChoice customerChoice = new CustomerChoice(productWareHouse, catalogueFormatter, formattedCatalogue);
     onlineShop.showProducts();
     customerChoice.productsToChooseExplore();
     customerChoice.decideWhatToDoNext();

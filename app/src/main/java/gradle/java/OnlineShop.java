@@ -1,28 +1,23 @@
 package gradle.java;
 
-import gradle.java.domain.Product;
 import gradle.java.domain.ProductRepository;
 import gradle.java.infrastructure.presentation.CatalogueFormatter;
-import java.util.ArrayList;
+import gradle.java.infrastructure.presentation.FormattedCatalogue;
 
 public class OnlineShop {
 
-  private final CatalogueFormatter catalogueFormatter;
+  private final FormattedCatalogue formattedCatalogue;
 
-  private final ProductRepository productRepository;
 
-  public OnlineShop(CatalogueFormatter catalogueFormatter, ProductRepository productRepository) {
-    this.catalogueFormatter = catalogueFormatter;
-    this.productRepository = productRepository;
+
+  public OnlineShop(FormattedCatalogue formattedCatalogue) {
+    this.formattedCatalogue = formattedCatalogue;
+
   }
 
   public void showProducts() {
-    outputFormattedCatalogue();
+    formattedCatalogue.outputFormattedCatalogue();
   }
 
-  private void outputFormattedCatalogue() {
-    ArrayList<Product> catalogue = productRepository.findAll();
-    String formattedCatalogue = catalogueFormatter.outputFormat(catalogue);
-    System.out.println(formattedCatalogue);
-  }
+
 }
