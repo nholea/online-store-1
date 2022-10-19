@@ -10,11 +10,11 @@ public class CatalogueFormatter {
 
     StringBuilder productFormat = new StringBuilder();
     for (Product product : catalogue) {
-      productFormat.append(product.showImage());
-      productFormat.append(product.showDescription());
-      productFormat.append(product.showFeaturedAttribute());
-      productFormat.append(product.showPrice());
-      productFormat.append(product.showReference());
+      productFormat.append(product.image);
+      productFormat.append(product.description);
+      productFormat.append(product.featuredAttribute);
+      productFormat.append(product.price);
+      productFormat.append(product.reference);
       productFormat.append("\n");
     }
     return productFormat.toString();
