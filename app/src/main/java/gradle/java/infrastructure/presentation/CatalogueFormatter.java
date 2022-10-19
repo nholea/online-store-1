@@ -17,7 +17,7 @@ public class CatalogueFormatter {
 
       productDetailsFormat(productFormat, String.valueOf(product.price), "\uD83D\uDCB0 Price: %s €");
 
-      productDetailsFormat(productFormat, product.reference, "Reference: %s");
+      productDetailsFormat(productFormat, product.reference, "Reference: %s\n");
 
     }
     return productFormat.toString();
