@@ -26,6 +26,5 @@ public class CataloguePresentation {
     Product chosenProduct = productRepository.findByReference(inputOption);
     System.out.println(catalogueFormatter.productDetailsFormat(chosenProduct));
   }
-
-
+  
 }
