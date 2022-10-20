@@ -3,7 +3,7 @@
  */
 package gradle.java;
 
-import gradle.java.infrastructure.interactions.CustomerChoice;
+import gradle.java.infrastructure.interactions.CustomerRequest;
 import gradle.java.infrastructure.presentation.CatalogueFormatter;
 import gradle.java.infrastructure.presentation.CataloguePresentation;
 import gradle.java.infrastructure.repositories.ProductWareHouse;
@@ -15,9 +15,9 @@ public class App {
     CatalogueFormatter catalogueFormatter = new CatalogueFormatter();
     CataloguePresentation cataloguePresentation = new CataloguePresentation(productWareHouse, catalogueFormatter);
     OnlineShop onlineShop = new OnlineShop(cataloguePresentation);
-    CustomerChoice customerChoice = new CustomerChoice(cataloguePresentation);
+    CustomerRequest customerRequest = new CustomerRequest(cataloguePresentation);
     onlineShop.showProducts();
-    customerChoice.productsToChooseExplore();
-    customerChoice.decideWhatToDoNext();
+    customerRequest.productsToChooseExplore();
+    customerRequest.decideWhatToDoNext();
   }
 }

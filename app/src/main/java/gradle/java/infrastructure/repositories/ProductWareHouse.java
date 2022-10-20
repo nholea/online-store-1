@@ -42,6 +42,6 @@ public class ProductWareHouse implements ProductRepository {
         return product;
       }
     }
-    throw new RuntimeException(StringStorage.PRODUCT_REFERENCE_NOT_FOUND);
+    throw new RuntimeException(StringRepository.PRODUCT_REFERENCE_NOT_FOUND);
   }
 }

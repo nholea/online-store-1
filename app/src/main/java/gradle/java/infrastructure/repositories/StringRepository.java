@@ -1,6 +1,6 @@
 package gradle.java.infrastructure.repositories;
 
-public class StringStorage {
+public class StringRepository {
 
   public static final String PRODUCT_ELECTION = "Which product would you like to explore? - Introduce a product's reference.";
 
