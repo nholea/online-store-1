@@ -18,13 +18,13 @@ public class FormattedCatalogue {
 
   public void outputFormattedCatalogue() {
     ArrayList<Product> catalogue = productRepository.findAll();
-    String formattedCatalogue = catalogueFormatter.outputFormat(catalogue);
+    String formattedCatalogue = catalogueFormatter.productFormat(catalogue);
     System.out.println(formattedCatalogue);
   }
 
   public void outputFormattedProduct(String inputOption) {
     Product chosenProduct = productRepository.findByReference(inputOption);
-    System.out.println(catalogueFormatter.outputProductDetailsFormat(chosenProduct));
+    System.out.println(catalogueFormatter.productDetailsFormat(chosenProduct));
   }
 
 

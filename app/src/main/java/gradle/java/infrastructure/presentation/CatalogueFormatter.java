@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class CatalogueFormatter {
 
-  public String outputFormat(ArrayList<Product> catalogue) {
+  public String productFormat(ArrayList<Product> catalogue) {
     StringBuilder productFormat = new StringBuilder();
     for (Product product : catalogue) {
       productAspectsFormat(productFormat, product.image);
@@ -25,7 +25,7 @@ public class CatalogueFormatter {
   }
 
 
-  public String outputProductDetailsFormat(Product product) {
+  public String productDetailsFormat(Product product) {
     StringBuilder productFormat = new StringBuilder();
 
     productAspectsFormat(productFormat, product.image);
@@ -47,7 +47,8 @@ public class CatalogueFormatter {
 
   }
 
-  private static void productSummaryDetails(StringBuilder productBuilder, String productShortDescription, String productHighlightedAttribute) {
+  private static void productSummaryDetails(StringBuilder productBuilder, String productShortDescription,
+    String productHighlightedAttribute) {
     productBuilder.append(productShortDescription).append(productHighlightedAttribute);
     productBuilder.append("\n");
   }
