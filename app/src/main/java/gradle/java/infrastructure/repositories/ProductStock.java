@@ -21,10 +21,10 @@ public class ProductStock {
     ArrayList<Product> catalogue = productRepository.findAll();
 
     for (Product product : catalogue) {
-      if (!productUnitsInStock.containsKey(product.reference)) {
-        productUnitsInStock.put(product.reference, 1);
+      if (!productUnitsInStock.containsKey(product.showReference())) {
+        productUnitsInStock.put(product.showReference(), 1);
       } else {
-        productUnitsInStock.put(product.reference, productUnitsInStock.get(product.reference) + 1);
+        productUnitsInStock.put(product.showReference(), productUnitsInStock.get(product.showReference()) + 1);
       }
     }
 

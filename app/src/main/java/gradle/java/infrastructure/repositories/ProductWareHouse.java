@@ -38,7 +38,7 @@ public class ProductWareHouse implements ProductRepository {
   @Override
   public Product findByReference(String reference) {
     for (Product product : products) {
-      if (product.reference.equals(reference)) {
+      if (product.showReference().equals(reference)) {
         return product;
       }
     }

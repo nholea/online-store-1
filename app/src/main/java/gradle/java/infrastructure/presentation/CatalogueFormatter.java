@@ -9,15 +9,15 @@ public class CatalogueFormatter {
   public String productFormat(ArrayList<Product> catalogue) {
     StringBuilder productFormat = new StringBuilder();
     for (Product product : catalogue) {
-      productAspectsFormat(productFormat, product.image);
+      productAspectsFormat(productFormat, product.showImage());
 
-      productSummaryDetails(productFormat, product.shortDescription, product.highlightedAttribute);
+      productSummaryDetails(productFormat, product.showShortDescription(), product.showHighlightedAttribute());
 
-      productAspectsFormat(productFormat, product.longDescription);
+      productAspectsFormat(productFormat, product.showLongDescription());
 
-      productDetailsFormat(productFormat, String.valueOf(product.price), "\uD83D\uDCB0 Price: %s €");
+      productDetailsFormat(productFormat, String.valueOf(product.showPrice()), "\uD83D\uDCB0 Price: %s €");
 
-      productDetailsFormat(productFormat, product.reference, "Reference: %s\n");
+      productDetailsFormat(productFormat, product.showReference(), "Reference: %s\n");
 
     }
     return productFormat.toString();
@@ -28,19 +28,19 @@ public class CatalogueFormatter {
   public String productDetailsFormat(Product product) {
     StringBuilder productFormat = new StringBuilder();
 
-    productAspectsFormat(productFormat, product.image);
+    productAspectsFormat(productFormat, product.showImage());
 
-    productDetailsFormat(productFormat, String.valueOf(product.price), "\uD83D\uDCB0 Price: %s €");
+    productDetailsFormat(productFormat, String.valueOf(product.showPrice()), "\uD83D\uDCB0 Price: %s €");
 
-    productDetailsFormat(productFormat, product.reference, "Reference: %s");
+    productDetailsFormat(productFormat, product.showReference(), "Reference: %s");
 
     addExplanatoryTitle(productFormat, "\nSUMMARY:");
 
-    productSummaryDetails(productFormat, product.shortDescription, product.highlightedAttribute);
+    productSummaryDetails(productFormat, product.showShortDescription(), product.showHighlightedAttribute());
 
     addExplanatoryTitle(productFormat, "\nDESCRIPTION:");
 
-    productAspectsFormat(productFormat, product.longDescription);
+    productAspectsFormat(productFormat, product.showLongDescription());
 
     return productFormat.toString();
 
