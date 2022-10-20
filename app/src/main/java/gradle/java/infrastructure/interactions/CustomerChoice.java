@@ -45,5 +45,4 @@ public class CustomerChoice {
       System.out.println(StringStorage.INVALID_OPTION);
     }
   }
-  
 }
