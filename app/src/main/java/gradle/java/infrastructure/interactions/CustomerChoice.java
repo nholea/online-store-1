@@ -1,6 +1,5 @@
 package gradle.java.infrastructure.interactions;
 
-import gradle.java.domain.Product;
 import gradle.java.domain.ProductRepository;
 import gradle.java.infrastructure.presentation.CatalogueFormatter;
 import gradle.java.infrastructure.presentation.FormattedCatalogue;
@@ -24,9 +23,9 @@ public class CustomerChoice {
     System.out.println(StringStorage.PRODUCT_ELECTION);
     Scanner scanner = new Scanner(System.in);
     String inputOption = scanner.nextLine();
-    Product chosenProduct = productRepository.findByReference(inputOption);
-    System.out.println(catalogueFormatter.outputProductDetailsFormat(chosenProduct));
+    formattedCatalogue.outputFormattedProduct(inputOption);
   }
+
 
   public void decideWhatToDoNext() {
     System.out.println("\n" + StringStorage.NEXT_STEP);
@@ -46,4 +45,5 @@ public class CustomerChoice {
       System.out.println(StringStorage.INVALID_OPTION);
     }
   }
+  
 }
