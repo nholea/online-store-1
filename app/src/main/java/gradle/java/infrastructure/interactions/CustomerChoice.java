@@ -1,21 +1,14 @@
 package gradle.java.infrastructure.interactions;
 
-import gradle.java.domain.ProductRepository;
-import gradle.java.infrastructure.presentation.CatalogueFormatter;
 import gradle.java.infrastructure.presentation.FormattedCatalogue;
 import gradle.java.infrastructure.repositories.StringStorage;
 import java.util.Scanner;
 
 public class CustomerChoice {
 
-  private final ProductRepository productRepository;
-
-  private final CatalogueFormatter catalogueFormatter;
   private final FormattedCatalogue formattedCatalogue;
 
-  public CustomerChoice(ProductRepository productRepository, CatalogueFormatter catalogueFormatter, FormattedCatalogue formattedCatalogue) {
-    this.productRepository = productRepository;
-    this.catalogueFormatter = catalogueFormatter;
+  public CustomerChoice(FormattedCatalogue formattedCatalogue) {
     this.formattedCatalogue = formattedCatalogue;
   }
 

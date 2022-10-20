@@ -15,7 +15,7 @@ public class App {
     CatalogueFormatter catalogueFormatter = new CatalogueFormatter();
     FormattedCatalogue formattedCatalogue = new FormattedCatalogue(productWareHouse, catalogueFormatter);
     OnlineShop onlineShop = new OnlineShop(formattedCatalogue);
-    CustomerChoice customerChoice = new CustomerChoice(productWareHouse, catalogueFormatter, formattedCatalogue);
+    CustomerChoice customerChoice = new CustomerChoice(formattedCatalogue);
     onlineShop.showProducts();
     customerChoice.productsToChooseExplore();
     customerChoice.decideWhatToDoNext();
