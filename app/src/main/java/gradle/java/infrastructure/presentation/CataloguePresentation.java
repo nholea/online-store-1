@@ -5,13 +5,13 @@ import gradle.java.domain.ProductRepository;
 import java.util.ArrayList;
 
 
-public class FormattedCatalogue {
+public class CataloguePresentation {
 
   private final ProductRepository productRepository;
 
   private final CatalogueFormatter catalogueFormatter;
 
-  public FormattedCatalogue(ProductRepository productRepository, CatalogueFormatter catalogueFormatter) {
+  public CataloguePresentation(ProductRepository productRepository, CatalogueFormatter catalogueFormatter) {
     this.productRepository = productRepository;
     this.catalogueFormatter = catalogueFormatter;
   }

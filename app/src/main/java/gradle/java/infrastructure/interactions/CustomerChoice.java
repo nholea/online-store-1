@@ -1,22 +1,22 @@
 package gradle.java.infrastructure.interactions;
 
-import gradle.java.infrastructure.presentation.FormattedCatalogue;
+import gradle.java.infrastructure.presentation.CataloguePresentation;
 import gradle.java.infrastructure.repositories.StringStorage;
 import java.util.Scanner;
 
 public class CustomerChoice {
 
-  private final FormattedCatalogue formattedCatalogue;
+  private final CataloguePresentation cataloguePresentation;
 
-  public CustomerChoice(FormattedCatalogue formattedCatalogue) {
-    this.formattedCatalogue = formattedCatalogue;
+  public CustomerChoice(CataloguePresentation cataloguePresentation) {
+    this.cataloguePresentation = cataloguePresentation;
   }
 
   public void productsToChooseExplore() {
     System.out.println(StringStorage.PRODUCT_ELECTION);
     Scanner scanner = new Scanner(System.in);
     String inputOption = scanner.nextLine();
-    formattedCatalogue.outputFormattedProduct(inputOption);
+    cataloguePresentation.outputFormattedProduct(inputOption);
   }
 
 
@@ -33,7 +33,7 @@ public class CustomerChoice {
     if (inputOption.equals(StringStorage.ONE)) {
       System.out.println();
     } else if (inputOption.equals(StringStorage.TWO)) {
-      formattedCatalogue.outputFormattedCatalogue();
+      cataloguePresentation.outputFormattedCatalogue();
     } else {
       System.out.println(StringStorage.INVALID_OPTION);
     }

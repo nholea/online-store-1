@@ -1,22 +1,19 @@
 package gradle.java;
 
-import gradle.java.domain.ProductRepository;
-import gradle.java.infrastructure.presentation.CatalogueFormatter;
-import gradle.java.infrastructure.presentation.FormattedCatalogue;
+import gradle.java.infrastructure.presentation.CataloguePresentation;
 
 public class OnlineShop {
 
-  private final FormattedCatalogue formattedCatalogue;
+  private final CataloguePresentation cataloguePresentation;
 
 
-
-  public OnlineShop(FormattedCatalogue formattedCatalogue) {
-    this.formattedCatalogue = formattedCatalogue;
+  public OnlineShop(CataloguePresentation cataloguePresentation) {
+    this.cataloguePresentation = cataloguePresentation;
 
   }
 
   public void showProducts() {
-    formattedCatalogue.outputFormattedCatalogue();
+    cataloguePresentation.outputFormattedCatalogue();
   }
 
 
