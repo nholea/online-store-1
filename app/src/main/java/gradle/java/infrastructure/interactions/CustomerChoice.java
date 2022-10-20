@@ -3,7 +3,7 @@ package gradle.java.infrastructure.interactions;
 import gradle.java.domain.ProductRepository;
 import gradle.java.infrastructure.presentation.CatalogueFormatter;
 import gradle.java.infrastructure.presentation.FormattedCatalogue;
-import gradle.java.infrastructure.presentation.StringStorage;
+import gradle.java.infrastructure.repositories.StringStorage;
 import java.util.Scanner;
 
 public class CustomerChoice {

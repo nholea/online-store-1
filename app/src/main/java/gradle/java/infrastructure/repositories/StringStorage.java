@@ -1,4 +1,4 @@
-package gradle.java.infrastructure.presentation;
+package gradle.java.infrastructure.repositories;
 
 public class StringStorage {
 

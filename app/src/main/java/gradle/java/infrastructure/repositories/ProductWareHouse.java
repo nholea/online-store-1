@@ -1,8 +1,7 @@
-package gradle.java.infrastructure.repositories.impl;
+package gradle.java.infrastructure.repositories;
 
 import gradle.java.domain.Product;
 import gradle.java.domain.ProductRepository;
-import gradle.java.infrastructure.presentation.StringStorage;
 import java.util.ArrayList;
 import java.util.Arrays;
 
