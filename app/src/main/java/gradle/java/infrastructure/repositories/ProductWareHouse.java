@@ -21,7 +21,14 @@ public class ProductWareHouse implements ProductRepository {
         "will be ready to move to a building far away from you.",
       " 4 octaves",
       1003.00,
-      "X4A")));
+      "X4A"),
+    new Product(
+      "\uD83D\uDCFA",
+      "Glamorous panoramic television,",
+      "With this panoramic television, your friday nights will be boring no more.",
+      " 13 inches",
+      300.99,
+      "W2C")));
 
   @Override
   public ArrayList<Product> findAll() {
