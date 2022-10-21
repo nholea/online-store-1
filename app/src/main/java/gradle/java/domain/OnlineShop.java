@@ -1,6 +1,6 @@
 package gradle.java.domain;
 
-import gradle.java.infrastructure.interactions.CustomerRequest;
+import gradle.java.infrastructure.interactions.Requester;
 import gradle.java.infrastructure.presentation.Presentation;
 import gradle.java.infrastructure.repositories.StringRepository;
 import java.util.ArrayList;
@@ -10,13 +10,13 @@ public class OnlineShop {
   private final Presentation presentation;
   private final ProductRepository productRepository;
 
-  private final CustomerRequest customerRequest;
+  private final Requester requester;
 
 
-  public OnlineShop(Presentation presentation, ProductRepository productRepository, CustomerRequest customerRequest) {
+  public OnlineShop(Presentation presentation, ProductRepository productRepository, Requester requester) {
     this.presentation = presentation;
     this.productRepository = productRepository;
-    this.customerRequest = customerRequest;
+    this.requester = requester;
   }
 
   public void showProducts() {
@@ -26,14 +26,14 @@ public class OnlineShop {
 
   public void chooseProductByReference() {
     System.out.println(StringRepository.PRODUCT_ELECTION);
-    String inputOption = customerRequest.scanner();
+    String inputOption = requester.demand();
     Product chosenProduct = productRepository.findByReference(inputOption);
     presentation.showProductDetails(chosenProduct);
   }
 
   public void keepShopping() {
     presentation.nextStepsMessage();
-    String inputOption = customerRequest.scanner();
+    String inputOption = requester.demand();
 
     if (inputOption.equals(StringRepository.ONE)) {
       System.out.println();
