@@ -13,7 +13,7 @@ public class App {
 
   public static void main(String[] args) {
     ProductWareHouse productWareHouse = new ProductWareHouse();
-    CatalogueFormatter catalogueFormatter = new CatalogueFormatter();
+    CatalogueFormatter catalogueFormatter = new CatalogueFormatter(productWareHouse);
     CustomerRequest customerRequest = new CustomerRequest();
     CataloguePresentation cataloguePresentation = new CataloguePresentation(catalogueFormatter);
     OnlineShop onlineShop = new OnlineShop(cataloguePresentation, productWareHouse, customerRequest);
