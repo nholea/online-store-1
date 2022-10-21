@@ -1,9 +1,7 @@
-package gradle.java;
+package gradle.java.domain;
 
-import gradle.java.domain.Product;
-import gradle.java.domain.ProductRepository;
 import gradle.java.infrastructure.interactions.CustomerRequest;
-import gradle.java.infrastructure.interactions.Presentation;
+import gradle.java.infrastructure.presentation.Presentation;
 import gradle.java.infrastructure.repositories.StringRepository;
 import java.util.ArrayList;
 
@@ -31,8 +29,19 @@ public class OnlineShop {
     String inputOption = customerRequest.scanner();
     Product chosenProduct = productRepository.findByReference(inputOption);
     presentation.showProductDetails(chosenProduct);
-
   }
 
+  public void keepShopping() {
+    presentation.nextStepsMessage();
+    String inputOption = customerRequest.scanner();
 
+    if (inputOption.equals(StringRepository.ONE)) {
+      System.out.println();
+    } else if (inputOption.equals(StringRepository.TWO)) {
+      showProducts();
+    } else {
+      System.out.println(StringRepository.INVALID_OPTION);
+    }
+  }
 }
+

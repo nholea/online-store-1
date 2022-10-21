@@ -3,8 +3,8 @@
  */
 package gradle.java;
 
+import gradle.java.domain.OnlineShop;
 import gradle.java.infrastructure.interactions.CustomerRequest;
-import gradle.java.infrastructure.interactions.DisplayResponse;
 import gradle.java.infrastructure.presentation.CatalogueFormatter;
 import gradle.java.infrastructure.presentation.CataloguePresentation;
 import gradle.java.infrastructure.repositories.ProductWareHouse;
@@ -14,14 +14,11 @@ public class App {
   public static void main(String[] args) {
     ProductWareHouse productWareHouse = new ProductWareHouse();
     CatalogueFormatter catalogueFormatter = new CatalogueFormatter();
-    CataloguePresentation cataloguePresentation = new CataloguePresentation(productWareHouse, catalogueFormatter);
-    OnlineShop onlineShop = new OnlineShop(cataloguePresentation);
     CustomerRequest customerRequest = new CustomerRequest();
-    DisplayResponse displayResponse = new DisplayResponse(customerRequest, cataloguePresentation);
+    CataloguePresentation cataloguePresentation = new CataloguePresentation(catalogueFormatter);
+    OnlineShop onlineShop = new OnlineShop(cataloguePresentation, productWareHouse, customerRequest);
     onlineShop.showProducts();
-    displayResponse.displayChosenProductByReference();
-    displayResponse.displayDecideWhatToDoNext();
-    displayResponse.addToCartOrShowCatalogue();
-
+    onlineShop.chooseProductByReference();
+    onlineShop.keepShopping();
   }
 }
