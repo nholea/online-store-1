@@ -1,10 +1,17 @@
 package gradle.java.infrastructure.presentation;
 
 import gradle.java.domain.Product;
+import gradle.java.domain.ProductRepository;
 import java.util.ArrayList;
 
 
 public class CatalogueFormatter {
+
+  private final ProductRepository productRepository;
+
+  public CatalogueFormatter(ProductRepository productRepository) {
+    this.productRepository = productRepository;
+  }
 
   public String productFormat(ArrayList<Product> catalogue) {
     StringBuilder productFormat = new StringBuilder();
@@ -26,6 +33,7 @@ public class CatalogueFormatter {
 
 
   public String productDetailsFormat(Product product) {
+
     StringBuilder productFormat = new StringBuilder();
 
     productAspectsFormat(productFormat, product.showImage());
@@ -33,6 +41,8 @@ public class CatalogueFormatter {
     productDetailsFormat(productFormat, String.valueOf(product.showPrice()), "\uD83D\uDCB0 Price: %s €");
 
     productDetailsFormat(productFormat, product.showReference(), "Reference: %s");
+
+    productDetailsFormat(productFormat, String.valueOf(productRepository.getProductUnitsInStock(product.showReference())), "%s left");
 
     addExplanatoryTitle(productFormat, "\nSUMMARY:");
 
