@@ -46,11 +46,32 @@ class CatalogueFormatterTest {
       + "\uD83D\uDCB0 Price: 300.99 €\n"
       + "Reference: W2C\n"
       + "\n";
-    ArrayList<Product> catalogue = CatalogueResource.products;
+    ArrayList<Product> catalogue = CatalogueResource.PRODUCTS;
 
     String formattedCatalogue = catalogueFormatter.productFormat(catalogue);
 
     assertThat(formattedCatalogue).isEqualTo(expectedFormattedCatalogue);
+  }
+
+  @Test
+  void productDetailsFormatTest() {
+    String expectedFormattedProduct = "\uD83D\uDCFA\n"
+      + "\uD83D\uDCB0 Price: 300.99 €\n"
+      + "Reference: W2C\n"
+      + "0 left\n"
+      + "\n"
+      + "SUMMARY:\n"
+      + "Glamorous panoramic television, 13 inches\n"
+      + "\n"
+      + "DESCRIPTION:\n"
+      + "With this panoramic television, your friday nights will be boring no more.\n"
+      + "The screen is composed of 14 million pixels.\n"
+      + "Thanks to its low energy consumption design, your bills will stay low.\n";
+    Product product = CatalogueResource.PRODUCT;
+
+    String formattedProduct = catalogueFormatter.productDetailsFormat(product);
+
+    assertThat(formattedProduct).isEqualTo(expectedFormattedProduct);
   }
 
 }

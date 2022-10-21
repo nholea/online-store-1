@@ -28,7 +28,7 @@ class OnlineShopTest {
   @Test
   void showProductsTest() {
 
-    ArrayList<Product> catalogue = CatalogueResource.products;
+    ArrayList<Product> catalogue = CatalogueResource.PRODUCTS;
     when(productRepository.findAll()).thenReturn(catalogue);
 
     onlineShop.showProducts();

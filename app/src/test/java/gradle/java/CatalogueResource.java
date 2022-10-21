@@ -6,7 +6,7 @@ import java.util.Arrays;
 
 public class CatalogueResource {
 
-  public static ArrayList<Product> products = new ArrayList<>(Arrays.asList(new Product(
+  public static ArrayList<Product> PRODUCTS = new ArrayList<>(Arrays.asList(new Product(
       "\uD83D\uDCFA",
       "Glamorous panoramic television,",
       "With this panoramic television, your friday nights will be boring no more.\n"
@@ -33,7 +33,7 @@ public class CatalogueResource {
       300.99,
       "W2C")));
 
-  public static Product product = new Product(
+  public static Product PRODUCT = new Product(
     "\uD83D\uDCFA",
     "Glamorous panoramic television,",
     "With this panoramic television, your friday nights will be boring no more.\n"
