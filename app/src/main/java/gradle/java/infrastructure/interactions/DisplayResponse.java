@@ -1,26 +1,35 @@
 package gradle.java.infrastructure.interactions;
 
+import gradle.java.infrastructure.presentation.CataloguePresentation;
 import gradle.java.infrastructure.repositories.StringRepository;
-import java.util.Scanner;
 
 public class DisplayResponse {
 
-  public void productsToChooseExplore() {
-    System.out.println(StringRepository.PRODUCT_ELECTION);
+  private final CataloguePresentation cataloguePresentation;
 
+  private final CustomerRequest customerRequest;
+
+  public DisplayResponse(CataloguePresentation cataloguePresentation, CustomerRequest customerRequest) {
+    this.cataloguePresentation = cataloguePresentation;
+    this.customerRequest = customerRequest;
+  }
+
+  public void displayChosenProductByReference() {
+    System.out.println(StringRepository.PRODUCT_ELECTION);
+    String inputOption = customerRequest.scanner();
     cataloguePresentation.outputFormattedProduct(inputOption);
   }
 
 
-  public void decideWhatToDoNext() {
+  public void displayDecideWhatToDoNext() {
     System.out.println("\n" + StringRepository.NEXT_STEP);
-    String nextOption1 = StringRepository.ADD_PRODUCT;
-    String nextOption2 = StringRepository.SHOW_PRODUCTS;
-    System.out.println(nextOption1);
-    System.out.println(nextOption2);
+    System.out.println(StringRepository.ADD_PRODUCT);
+    System.out.println(StringRepository.SHOW_PRODUCTS);
 
-    Scanner scanner = new Scanner(System.in);
-    String inputOption = scanner.nextLine();
+  }
+
+  public void addToCartOrShowCatalogue() {
+    String inputOption = customerRequest.scanner();
 
     if (inputOption.equals(StringRepository.ONE)) {
       System.out.println();
