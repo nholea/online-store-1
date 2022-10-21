@@ -3,6 +3,7 @@ package gradle.java.domain;
 import static org.mockito.Mockito.inOrder;
 import static org.mockito.Mockito.when;
 
+import gradle.java.CatalogueResource;
 import java.util.ArrayList;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -26,15 +27,9 @@ class OnlineShopTest {
 
   @Test
   void showProductsTest() {
-    Product product = new Product(
-      "\uD83D\uDCFA",
-      "Glamorous panoramic television,",
-      "With this panoramic television, your friday nights will be boring no more.",
-      " 13 inches",
-      300.99,
-      "W2C");
-    ArrayList<Product> catalogue = new ArrayList<>();
-    catalogue.add(product);
+
+    ArrayList<Product> catalogue = CatalogueResource.products;
+
     when(productRepository.findAll()).thenReturn(catalogue);
 
     onlineShop.showProducts();
