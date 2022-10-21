@@ -1,4 +1,4 @@
-package gradle.java.infrastructure.interactions;
+package gradle.java.domain;
 
 public interface Requester {
 

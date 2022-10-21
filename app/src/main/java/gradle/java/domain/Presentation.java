@@ -1,6 +1,5 @@
-package gradle.java.infrastructure.presentation;
+package gradle.java.domain;
 
-import gradle.java.domain.Product;
 import java.util.ArrayList;
 
 public interface Presentation {

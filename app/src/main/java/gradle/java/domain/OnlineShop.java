@@ -1,7 +1,5 @@
 package gradle.java.domain;
 
-import gradle.java.infrastructure.interactions.Requester;
-import gradle.java.infrastructure.presentation.Presentation;
 import gradle.java.infrastructure.repositories.StringRepository;
 import java.util.ArrayList;
 

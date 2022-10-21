@@ -8,30 +8,34 @@
 import org.gradle.api.tasks.testing.logging.TestLogEvent
 
 plugins {
-    // Apply the application plugin to add support for building a CLI application in Java.
-    application
+  // Apply the application plugin to add support for building a CLI application in Java.
+  application
 }
 
 repositories {
-    // Use Maven Central for resolving dependencies.
-    mavenCentral()
+  // Use Maven Central for resolving dependencies.
+  mavenCentral()
 }
 
 dependencies {
-    testImplementation(platform("org.junit:junit-bom:5.8.2"))
-    testImplementation("org.junit.jupiter:junit-jupiter")
-    testImplementation("org.assertj:assertj-core:3.21.0")
+  testImplementation(platform("org.junit:junit-bom:5.8.2"))
+  testImplementation("org.junit.jupiter:junit-jupiter")
+  testImplementation("org.assertj:assertj-core:3.21.0")
+  testImplementation("org.mockito:mockito-core:4.8.1")
+  testImplementation("org.mockito:mockito-junit-jupiter:4.8.1")
+
+
 }
 
 tasks.test {
-    useJUnitPlatform()
-    testLogging {
-        events(TestLogEvent.PASSED, TestLogEvent.SKIPPED, TestLogEvent.FAILED)
-    }
+  useJUnitPlatform()
+  testLogging {
+    events(TestLogEvent.PASSED, TestLogEvent.SKIPPED, TestLogEvent.FAILED)
+  }
 }
 
 application {
-    // Define the main class for the application.
-    mainClass.set("gradle.java.App")
+  // Define the main class for the application.
+  mainClass.set("gradle.java.App")
 }
 
