@@ -4,6 +4,7 @@ import gradle.java.domain.Product;
 import gradle.java.domain.ProductRepository;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 
 public class ProductWareHouse implements ProductRepository {
 
@@ -30,6 +31,7 @@ public class ProductWareHouse implements ProductRepository {
       300.99,
       "W2C")));
 
+
   @Override
   public ArrayList<Product> findAll() {
     return products;
@@ -44,4 +46,31 @@ public class ProductWareHouse implements ProductRepository {
     }
     throw new RuntimeException(StringRepository.PRODUCT_REFERENCE_NOT_FOUND);
   }
+
+  @Override
+  public HashMap<String, Integer> setProductUnitsByReference() {
+    HashMap<String, Integer> productStock = new HashMap<>();
+    ArrayList<Product> catalogue = findAll();
+
+    for (Product product : catalogue) {
+      if (!productStock.containsKey(product.showReference())) {
+        productStock.put(product.showReference(), 1);
+      } else {
+        productStock.put(product.showReference(), productStock.get(product.showReference()) + 1);
+      }
+    }
+    return productStock;
+  }
+
+  @Override
+  public int getProductUnitsInStock(String reference) {
+    HashMap<String, Integer> productStock = setProductUnitsByReference();
+    for (String productReference : productStock.keySet()) {
+      if (productStock.containsKey(reference)) {
+        return productStock.get(reference);
+      }
+    }
+    throw new RuntimeException(StringRepository.PRODUCT_REFERENCE_NOT_FOUND);
+  }
+
 }
