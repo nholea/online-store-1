@@ -8,6 +8,8 @@ public interface Presentation {
   void showProducts(ArrayList<Product> catalogue);
 
   void showProductDetails(Product product);
+
+  void nextStepsMessage();
 }
 
 
