@@ -33,4 +33,14 @@ public class CatalogueResource {
       300.99,
       "W2C")));
 
+  public static Product product = new Product(
+    "\uD83D\uDCFA",
+    "Glamorous panoramic television,",
+    "With this panoramic television, your friday nights will be boring no more.\n"
+      + "The screen is composed of 14 million pixels.\n"
+      + "Thanks to its low energy consumption design, your bills will stay low.",
+    " 13 inches",
+    300.99,
+    "W2C");
+
 }
