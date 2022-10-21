@@ -29,11 +29,9 @@ class OnlineShopTest {
   void showProductsTest() {
 
     ArrayList<Product> catalogue = CatalogueResource.products;
-
     when(productRepository.findAll()).thenReturn(catalogue);
 
     onlineShop.showProducts();
-
     InOrder inOrder = inOrder(productRepository, presentation);
 
     inOrder.verify(productRepository).findAll();
