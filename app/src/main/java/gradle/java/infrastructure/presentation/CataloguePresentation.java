@@ -1,7 +1,6 @@
 package gradle.java.infrastructure.presentation;
 
 import gradle.java.domain.Product;
-import gradle.java.infrastructure.interactions.Presentation;
 import gradle.java.infrastructure.repositories.StringRepository;
 import java.util.ArrayList;
 
