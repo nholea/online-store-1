@@ -12,15 +12,15 @@ public class CustomerRequest {
     this.cataloguePresentation = cataloguePresentation;
   }
 
-  public void productsToChooseExplore() {
+  public String productsToChooseExplore() {
     System.out.println(StringRepository.PRODUCT_ELECTION);
     Scanner scanner = new Scanner(System.in);
     String inputOption = scanner.nextLine();
-    cataloguePresentation.outputFormattedProduct(inputOption);
+    return inputOption;
   }
 
 
-  public void decideWhatToDoNext() {
+  public String decideWhatToDoNext() {
     System.out.println("\n" + StringRepository.NEXT_STEP);
     String nextOption1 = StringRepository.ADD_PRODUCT;
     String nextOption2 = StringRepository.SHOW_PRODUCTS;
@@ -30,6 +30,10 @@ public class CustomerRequest {
     Scanner scanner = new Scanner(System.in);
     String inputOption = scanner.nextLine();
 
+    return inputOption;
+  }
+
+  public void addToCartOrShowCatalogue(String inputOption) {
     if (inputOption.equals(StringRepository.ONE)) {
       System.out.println();
     } else if (inputOption.equals(StringRepository.TWO)) {
@@ -37,5 +41,9 @@ public class CustomerRequest {
     } else {
       System.out.println(StringRepository.INVALID_OPTION);
     }
+  }
+
+  public void displayChosenProductByReference(String inputOption) {
+    cataloguePresentation.outputFormattedProduct(inputOption);
   }
 }
