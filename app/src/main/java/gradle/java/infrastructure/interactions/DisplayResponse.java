@@ -5,13 +5,13 @@ import gradle.java.infrastructure.repositories.StringRepository;
 
 public class DisplayResponse {
 
+  private final CustomerRequest customerRequest;
   private final CataloguePresentation cataloguePresentation;
 
-  private final CustomerRequest customerRequest;
 
-  public DisplayResponse(CataloguePresentation cataloguePresentation, CustomerRequest customerRequest) {
-    this.cataloguePresentation = cataloguePresentation;
+  public DisplayResponse(CustomerRequest customerRequest, CataloguePresentation cataloguePresentation) {
     this.customerRequest = customerRequest;
+    this.cataloguePresentation = cataloguePresentation;
   }
 
   public void displayChosenProductByReference() {
