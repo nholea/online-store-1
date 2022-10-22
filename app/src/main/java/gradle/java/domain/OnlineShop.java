@@ -37,6 +37,8 @@ public class OnlineShop {
       System.out.println();
     } else if (inputOption.equals(StringRepository.TWO)) {
       showProducts();
+      chooseProductByReference();
+      keepShopping();
     } else {
       System.out.println(StringRepository.INVALID_OPTION);
     }
