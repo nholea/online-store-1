@@ -3,6 +3,7 @@ package gradle.java.domain;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.atLeastOnce;
 import static org.mockito.Mockito.inOrder;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
@@ -76,7 +77,7 @@ class OnlineShopTest {
 
     inOrder.verify(productRepository).findAll();
     inOrder.verify(presentation).showProducts(CATALOGUE);
-    ArrayList<Product> catalogue = (catalogueCaptor.getValue());
+    ArrayList<Product> catalogue = catalogueCaptor.getValue();
     assertThat(catalogue).usingRecursiveComparison().isEqualTo(expectedCatalogue);
 
   }
@@ -109,5 +110,15 @@ class OnlineShopTest {
     verify(presentation, never()).showProductDetails(any(Product.class));
   }
 
+  @Test
+  void whenCustomerChoosesOptionToContinueShopping() {
+    String customerChoice = "2";
+    when(requester.demand()).thenReturn(customerChoice);
 
+    onlineShop.keepShopping();
+
+    verify(presentation, atLeastOnce()).showProducts(any());
+    verify(presentation, atLeastOnce()).showProductDetails(any());
+
+  }
 }
