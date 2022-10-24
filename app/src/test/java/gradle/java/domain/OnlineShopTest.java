@@ -1,7 +1,10 @@
 package gradle.java.domain;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.inOrder;
+import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -63,32 +66,48 @@ class OnlineShopTest {
 
   @Test
   void showProductsTest() {
-    ArgumentCaptor<ArrayList<Product>> productCaptor = ArgumentCaptor.forClass(ArrayList.class);
+    ArgumentCaptor<ArrayList<Product>> catalogueCaptor = ArgumentCaptor.forClass(ArrayList.class);
     ArrayList<Product> expectedCatalogue = CatalogueResource.PRODUCTS;
     when(productRepository.findAll()).thenReturn(CATALOGUE);
 
     onlineShop.showProducts();
-
     InOrder inOrder = inOrder(productRepository, presentation);
+    verify(presentation).showProducts(catalogueCaptor.capture());
 
     inOrder.verify(productRepository).findAll();
     inOrder.verify(presentation).showProducts(CATALOGUE);
-    verify(presentation).showProducts(productCaptor.capture());
-    ArrayList<Product> catalogue = (productCaptor.getValue());
-
+    ArrayList<Product> catalogue = (catalogueCaptor.getValue());
     assertThat(catalogue).usingRecursiveComparison().isEqualTo(expectedCatalogue);
 
   }
 
   @Test
   void showProductDetailsWhenFindAnExistingReference() {
-    ArrayList<Product> catalogue = CatalogueResource.PRODUCTS;
+    ArgumentCaptor<Product> productCaptor = ArgumentCaptor.forClass(Product.class);
+    Product expectedProduct = CatalogueResource.PRODUCTS.get(0);
     String productReference = "W2C";
     when(requester.demand()).thenReturn(productReference);
-    when(productRepository.findByReference(productReference)).thenReturn(catalogue.get(0));
+    when(productRepository.findByReference(productReference)).thenReturn(CATALOGUE.get(0));
 
     onlineShop.chooseProductByReference();
+    verify(presentation).showProductDetails(productCaptor.capture());
+    Product product = (productCaptor.getValue());
 
-
+    assertThat(product).usingRecursiveComparison().isEqualTo(expectedProduct);
   }
+
+  @Test
+  void throwAnExceptionWhenTheProductReferenceDoesNotExist() {
+    String productReference = "P5L";
+    when(requester.demand()).thenReturn(productReference);
+    when(productRepository.findByReference(productReference))
+      .thenThrow(new RuntimeException("Product with this reference does not exist in our storage"));
+
+    assertThatThrownBy(() -> onlineShop.chooseProductByReference())
+      .isInstanceOf(RuntimeException.class)
+      .hasMessageContaining("Product with this reference does not exist in our storage");
+    verify(presentation, never()).showProductDetails(any(Product.class));
+  }
+
+
 }
