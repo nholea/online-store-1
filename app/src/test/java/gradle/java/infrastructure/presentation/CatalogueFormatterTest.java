@@ -23,29 +23,31 @@ class CatalogueFormatterTest {
 
   @Test
   void productFormatTest() {
-    String expectedFormattedCatalogue = "\uD83D\uDCFA\n"
-      + "Glamorous panoramic television, 13 inches\n"
-      + "With this panoramic television, your friday nights will be boring no more.\n"
-      + "The screen is composed of 14 million pixels.\n"
-      + "Thanks to its low energy consumption design, your bills will stay low.\n"
-      + "\uD83D\uDCB0 Price: 300.99 €\n"
-      + "Reference: W2C\n"
-      + "\n"
-      + "\uD83C\uDFB9\n"
-      + "Untuned musical keyboard, 4 octaves\n"
-      + "Tired of your noisy neighbourgh? Play this untuned musical keyboard for two hours at home and your neighbour \n"
-      + "will be ready to move to a building far away from you.\n"
-      + "\uD83D\uDCB0 Price: 1003.0 €\n"
-      + "Reference: X4A\n"
-      + "\n"
-      + "\uD83D\uDCFA\n"
-      + "Glamorous panoramic television, 13 inches\n"
-      + "With this panoramic television, your friday nights will be boring no more.\n"
-      + "The screen is composed of 14 million pixels.\n"
-      + "Thanks to its low energy consumption design, your bills will stay low.\n"
-      + "\uD83D\uDCB0 Price: 300.99 €\n"
-      + "Reference: W2C\n"
-      + "\n";
+    String expectedFormattedCatalogue = """
+      \uD83D\uDCFA
+      Glamorous panoramic television, 13 inches
+      With this panoramic television, your friday nights will be boring no more.
+      The screen is composed of 14 million pixels.
+      Thanks to its low energy consumption design, your bills will stay low.
+      \uD83D\uDCB0 Price: 300.99 €
+      Reference: W2C
+
+      \uD83C\uDFB9
+      Untuned musical keyboard, 4 octaves
+      Tired of your noisy neighbourgh? Play this untuned musical keyboard for two hours at home and your neighbour\s
+      will be ready to move to a building far away from you.
+      \uD83D\uDCB0 Price: 1003.0 €
+      Reference: X4A
+
+      \uD83D\uDCFA
+      Glamorous panoramic television, 13 inches
+      With this panoramic television, your friday nights will be boring no more.
+      The screen is composed of 14 million pixels.
+      Thanks to its low energy consumption design, your bills will stay low.
+      \uD83D\uDCB0 Price: 300.99 €
+      Reference: W2C
+
+      """;
     ArrayList<Product> catalogue = CatalogueResource.PRODUCTS;
 
     String formattedCatalogue = catalogueFormatter.productFormat(catalogue);
@@ -55,18 +57,20 @@ class CatalogueFormatterTest {
 
   @Test
   void productDetailsFormatTest() {
-    String expectedFormattedProduct = "\uD83D\uDCFA\n"
-      + "\uD83D\uDCB0 Price: 300.99 €\n"
-      + "Reference: W2C\n"
-      + "0 left\n"
-      + "\n"
-      + "SUMMARY:\n"
-      + "Glamorous panoramic television, 13 inches\n"
-      + "\n"
-      + "DESCRIPTION:\n"
-      + "With this panoramic television, your friday nights will be boring no more.\n"
-      + "The screen is composed of 14 million pixels.\n"
-      + "Thanks to its low energy consumption design, your bills will stay low.\n";
+    String expectedFormattedProduct = """
+      \uD83D\uDCFA
+      \uD83D\uDCB0 Price: 300.99 €
+      Reference: W2C
+      0 left
+
+      SUMMARY:
+      Glamorous panoramic television, 13 inches
+
+      DESCRIPTION:
+      With this panoramic television, your friday nights will be boring no more.
+      The screen is composed of 14 million pixels.
+      Thanks to its low energy consumption design, your bills will stay low.
+      """;
     Product product = CatalogueResource.PRODUCT;
 
     String formattedProduct = catalogueFormatter.productDetailsFormat(product);
