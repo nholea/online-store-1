@@ -9,9 +9,10 @@ public class CatalogueResource {
   public static ArrayList<Product> PRODUCTS = new ArrayList<>(Arrays.asList(new Product(
       "\uD83D\uDCFA",
       "Glamorous panoramic television,",
-      "With this panoramic television, your friday nights will be boring no more.\n"
-        + "The screen is composed of 14 million pixels.\n"
-        + "Thanks to its low energy consumption design, your bills will stay low.",
+      """
+        With this panoramic television, your friday nights will be boring no more.
+        The screen is composed of 14 million pixels.
+        Thanks to its low energy consumption design, your bills will stay low.""",
       " 13 inches",
       300.99,
       "W2C"),
@@ -26,9 +27,10 @@ public class CatalogueResource {
     new Product(
       "\uD83D\uDCFA",
       "Glamorous panoramic television,",
-      "With this panoramic television, your friday nights will be boring no more.\n"
-        + "The screen is composed of 14 million pixels.\n"
-        + "Thanks to its low energy consumption design, your bills will stay low.",
+      """
+        With this panoramic television, your friday nights will be boring no more.
+        The screen is composed of 14 million pixels.
+        Thanks to its low energy consumption design, your bills will stay low.""",
       " 13 inches",
       300.99,
       "W2C")));
