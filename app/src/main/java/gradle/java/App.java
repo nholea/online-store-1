@@ -6,7 +6,6 @@ package gradle.java;
 import gradle.java.domain.OnlineShop;
 import gradle.java.infrastructure.interactions.CliUserInterface;
 import gradle.java.infrastructure.presentation.CatalogueFormatter;
-import gradle.java.infrastructure.presentation.CataloguePresentation;
 import gradle.java.infrastructure.repositories.ProductWareHouse;
 
 public class App {
@@ -15,8 +14,7 @@ public class App {
     ProductWareHouse productWareHouse = new ProductWareHouse();
     CatalogueFormatter catalogueFormatter = new CatalogueFormatter(productWareHouse);
     CliUserInterface cliUserInterface = new CliUserInterface();
-    CataloguePresentation cataloguePresentation = new CataloguePresentation(catalogueFormatter);
-    OnlineShop onlineShop = new OnlineShop(cataloguePresentation, productWareHouse, catalogueFormatter, cliUserInterface);
+    OnlineShop onlineShop = new OnlineShop(productWareHouse, catalogueFormatter, cliUserInterface);
     onlineShop.showProducts();
     onlineShop.chooseProductByReference();
     onlineShop.keepShopping();

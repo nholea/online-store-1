@@ -4,8 +4,7 @@ import gradle.java.infrastructure.repositories.StringRepository;
 import java.util.ArrayList;
 
 public class OnlineShop {
-
-  private final Presentation presentation;
+  
   private final ProductRepository productRepository;
 
   private final Formatter formatter;
@@ -13,8 +12,7 @@ public class OnlineShop {
   private final UserInterface userInterface;
 
 
-  public OnlineShop(Presentation presentation, ProductRepository productRepository, Formatter formatter, UserInterface userInterface) {
-    this.presentation = presentation;
+  public OnlineShop(ProductRepository productRepository, Formatter formatter, UserInterface userInterface) {
     this.productRepository = productRepository;
     this.formatter = formatter;
     this.userInterface = userInterface;
@@ -27,14 +25,15 @@ public class OnlineShop {
   }
 
   public void chooseProductByReference() {
-    System.out.println(StringRepository.PRODUCT_ELECTION);
+    customerChoice(StringRepository.PRODUCT_ELECTION);
     String inputOption = userInterface.demand();
     Product chosenProduct = productRepository.findByReference(inputOption);
-    presentation.showProductDetails(chosenProduct);
+    String formattedChosenProduct = formatter.productDetailsFormat(chosenProduct);
+    userInterface.sendMessage(formattedChosenProduct);
   }
 
   public void keepShopping() {
-    presentation.nextStepsMessage();
+    customerChoice(Menu.addToCartOrKeepBrowsing());
     String inputOption = userInterface.demand();
 
     if (inputOption.equals(StringRepository.ONE)) {
@@ -43,8 +42,12 @@ public class OnlineShop {
       showProducts();
       chooseProductByReference();
     } else {
-      System.out.println(StringRepository.INVALID_OPTION);
+      userInterface.sendMessage(StringRepository.INVALID_OPTION);
     }
+  }
+
+  private void customerChoice(String message) {
+    userInterface.sendMessage(message);
   }
 }
 
