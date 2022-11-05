@@ -4,7 +4,7 @@
 package gradle.java;
 
 import gradle.java.domain.OnlineShop;
-import gradle.java.infrastructure.interactions.CustomerRequest;
+import gradle.java.infrastructure.interactions.CliUserInterface;
 import gradle.java.infrastructure.presentation.CatalogueFormatter;
 import gradle.java.infrastructure.presentation.CataloguePresentation;
 import gradle.java.infrastructure.repositories.ProductWareHouse;
@@ -14,9 +14,9 @@ public class App {
   public static void main(String[] args) {
     ProductWareHouse productWareHouse = new ProductWareHouse();
     CatalogueFormatter catalogueFormatter = new CatalogueFormatter(productWareHouse);
-    CustomerRequest customerRequest = new CustomerRequest();
+    CliUserInterface cliUserInterface = new CliUserInterface();
     CataloguePresentation cataloguePresentation = new CataloguePresentation(catalogueFormatter);
-    OnlineShop onlineShop = new OnlineShop(cataloguePresentation, productWareHouse, customerRequest);
+    OnlineShop onlineShop = new OnlineShop(cataloguePresentation, productWareHouse, cliUserInterface);
     onlineShop.showProducts();
     onlineShop.chooseProductByReference();
     onlineShop.keepShopping();
