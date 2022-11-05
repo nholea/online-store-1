@@ -8,18 +8,22 @@ public class OnlineShop {
   private final Presentation presentation;
   private final ProductRepository productRepository;
 
+  private final Formatter formatter;
+
   private final UserInterface userInterface;
 
 
-  public OnlineShop(Presentation presentation, ProductRepository productRepository, UserInterface userInterface) {
+  public OnlineShop(Presentation presentation, ProductRepository productRepository, Formatter formatter, UserInterface userInterface) {
     this.presentation = presentation;
     this.productRepository = productRepository;
+    this.formatter = formatter;
     this.userInterface = userInterface;
   }
 
   public void showProducts() {
     ArrayList<Product> catalogue = productRepository.findAll();
-    presentation.showProducts(catalogue);
+    String formattedCatalogue = formatter.productFormat(catalogue);
+    userInterface.sendMessage(formattedCatalogue);
   }
 
   public void chooseProductByReference() {

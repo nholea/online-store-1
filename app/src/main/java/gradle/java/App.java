@@ -16,7 +16,7 @@ public class App {
     CatalogueFormatter catalogueFormatter = new CatalogueFormatter(productWareHouse);
     CliUserInterface cliUserInterface = new CliUserInterface();
     CataloguePresentation cataloguePresentation = new CataloguePresentation(catalogueFormatter);
-    OnlineShop onlineShop = new OnlineShop(cataloguePresentation, productWareHouse, cliUserInterface);
+    OnlineShop onlineShop = new OnlineShop(cataloguePresentation, productWareHouse, catalogueFormatter, cliUserInterface);
     onlineShop.showProducts();
     onlineShop.chooseProductByReference();
     onlineShop.keepShopping();
