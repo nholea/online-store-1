@@ -25,9 +25,9 @@ class OnlineShopTest {
 
   @Mock
   ProductRepository productRepository;
-
+  
   @Mock
-  Presentation presentation;
+  Formatter formatter;
 
   @Mock
   UserInterface userInterface;
@@ -72,11 +72,11 @@ class OnlineShopTest {
     when(productRepository.findAll()).thenReturn(CATALOGUE);
 
     onlineShop.showProducts();
-    InOrder inOrder = inOrder(productRepository, presentation);
-    verify(presentation).showProducts(catalogueCaptor.capture());
+    InOrder inOrder = inOrder(productRepository, formatter);
+    verify(formatter).productFormat(catalogueCaptor.capture());
 
     inOrder.verify(productRepository).findAll();
-    inOrder.verify(presentation).showProducts(CATALOGUE);
+    inOrder.verify(formatter).productFormat(CATALOGUE);
     ArrayList<Product> catalogue = catalogueCaptor.getValue();
     assertThat(catalogue).usingRecursiveComparison().isEqualTo(expectedCatalogue);
 
@@ -91,7 +91,7 @@ class OnlineShopTest {
     when(productRepository.findByReference(productReference)).thenReturn(CATALOGUE.get(0));
 
     onlineShop.chooseProductByReference();
-    verify(presentation).showProductDetails(productCaptor.capture());
+    verify(formatter).productDetailsFormat(productCaptor.capture());
     Product product = (productCaptor.getValue());
 
     assertThat(product).usingRecursiveComparison().isEqualTo(expectedProduct);
@@ -107,7 +107,7 @@ class OnlineShopTest {
     assertThatThrownBy(() -> onlineShop.chooseProductByReference())
       .isInstanceOf(RuntimeException.class)
       .hasMessageContaining("Product with this reference does not exist in our storage");
-    verify(presentation, never()).showProductDetails(any(Product.class));
+    verify(formatter, never()).productDetailsFormat(any(Product.class));
   }
 
   @Test
@@ -117,8 +117,8 @@ class OnlineShopTest {
 
     onlineShop.keepShopping();
 
-    verify(presentation, atLeastOnce()).showProducts(any());
-    verify(presentation, atLeastOnce()).showProductDetails(any());
+    verify(formatter, atLeastOnce()).productFormat(any());
+    verify(formatter, atLeastOnce()).productDetailsFormat(any());
 
   }
 }
