@@ -1,9 +1,9 @@
 package gradle.java.infrastructure.interactions;
 
-import gradle.java.domain.Requester;
+import gradle.java.domain.UserInterface;
 import java.util.Scanner;
 
-public class CustomerRequest implements Requester {
+public class CustomerRequest implements UserInterface {
 
   @Override
   public void sendMessage(String message) {

@@ -8,13 +8,13 @@ public class OnlineShop {
   private final Presentation presentation;
   private final ProductRepository productRepository;
 
-  private final Requester requester;
+  private final UserInterface userInterface;
 
 
-  public OnlineShop(Presentation presentation, ProductRepository productRepository, Requester requester) {
+  public OnlineShop(Presentation presentation, ProductRepository productRepository, UserInterface userInterface) {
     this.presentation = presentation;
     this.productRepository = productRepository;
-    this.requester = requester;
+    this.userInterface = userInterface;
   }
 
   public void showProducts() {
@@ -24,14 +24,14 @@ public class OnlineShop {
 
   public void chooseProductByReference() {
     System.out.println(StringRepository.PRODUCT_ELECTION);
-    String inputOption = requester.demand();
+    String inputOption = userInterface.demand();
     Product chosenProduct = productRepository.findByReference(inputOption);
     presentation.showProductDetails(chosenProduct);
   }
 
   public void keepShopping() {
     presentation.nextStepsMessage();
-    String inputOption = requester.demand();
+    String inputOption = userInterface.demand();
 
     if (inputOption.equals(StringRepository.ONE)) {
       System.out.println();

@@ -30,7 +30,7 @@ class OnlineShopTest {
   Presentation presentation;
 
   @Mock
-  Requester requester;
+  UserInterface userInterface;
 
   @InjectMocks
   OnlineShop onlineShop;
@@ -87,7 +87,7 @@ class OnlineShopTest {
     ArgumentCaptor<Product> productCaptor = ArgumentCaptor.forClass(Product.class);
     Product expectedProduct = CatalogueResource.PRODUCTS.get(0);
     String productReference = "W2C";
-    when(requester.demand()).thenReturn(productReference);
+    when(userInterface.demand()).thenReturn(productReference);
     when(productRepository.findByReference(productReference)).thenReturn(CATALOGUE.get(0));
 
     onlineShop.chooseProductByReference();
@@ -100,7 +100,7 @@ class OnlineShopTest {
   @Test
   void throwAnExceptionWhenTheProductReferenceDoesNotExist() {
     String productReference = "P5L";
-    when(requester.demand()).thenReturn(productReference);
+    when(userInterface.demand()).thenReturn(productReference);
     when(productRepository.findByReference(productReference))
       .thenThrow(new RuntimeException("Product with this reference does not exist in our storage"));
 
@@ -113,7 +113,7 @@ class OnlineShopTest {
   @Test
   void whenCustomerChoosesOptionToContinueShopping() {
     String customerChoice = "2";
-    when(requester.demand()).thenReturn(customerChoice);
+    when(userInterface.demand()).thenReturn(customerChoice);
 
     onlineShop.keepShopping();
 
