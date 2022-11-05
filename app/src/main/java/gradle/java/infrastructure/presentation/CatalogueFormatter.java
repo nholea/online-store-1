@@ -1,11 +1,12 @@
 package gradle.java.infrastructure.presentation;
 
+import gradle.java.domain.Formatter;
 import gradle.java.domain.Product;
 import gradle.java.domain.ProductRepository;
 import java.util.ArrayList;
 
 
-public class CatalogueFormatter {
+public class CatalogueFormatter implements Formatter {
 
   private final ProductRepository productRepository;
 
@@ -13,6 +14,7 @@ public class CatalogueFormatter {
     this.productRepository = productRepository;
   }
 
+  @Override
   public String productFormat(ArrayList<Product> catalogue) {
     StringBuilder productFormat = new StringBuilder();
     for (Product product : catalogue) {
@@ -31,7 +33,7 @@ public class CatalogueFormatter {
 
   }
 
-
+  @Override
   public String productDetailsFormat(Product product) {
 
     StringBuilder productFormat = new StringBuilder();
